@@ -1,14 +1,21 @@
-import { Center } from "@chakra-ui/react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 function App() {
 	return (
-		<Center
-			bg="black"
-			h="100vh"
-			color="white"
-		>
-			Hello World
-		</Center>
+		<BrowserRouter>
+			<Routes>
+				<Route
+					path="/login"
+					element={<Login />}
+				/>
+				<Route
+					path="/register"
+					element={<Register />}
+				/>
+			</Routes>
+		</BrowserRouter>
 	);
 }
 
