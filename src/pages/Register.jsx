@@ -1,4 +1,4 @@
-import BaseLoginRegister from "../components/baseLoginRegister";
+import BaseLoginRegister from "../components/BaseLoginRegister";
 
 const Register = () => {
 	return (
