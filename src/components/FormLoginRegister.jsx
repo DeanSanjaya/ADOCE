@@ -3,7 +3,7 @@ import { Button, FormControl, FormLabel, Input, InputGroup, InputLeftAddon, Inpu
 import { EmailIcon, LockIcon, ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { useState } from "react";
 
-const FormLoginRegister = (props) => {
+const FormLoginRegister = ({ buttonValue }) => {
 	const [show, setShow] = useState(false);
 	const handleClick = () => setShow(!show);
 	return (
@@ -64,8 +64,9 @@ const FormLoginRegister = (props) => {
 				color="white"
 				w="100%"
 				mt={25}
+				borderRadius="24px"
 			>
-				{props.buttonValue}
+				{buttonValue}
 			</Button>
 		</FormControl>
 	);

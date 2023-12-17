@@ -1,8 +1,14 @@
+import { Link } from "react-router-dom";
 import BaseLoginRegister from "../components/BaseLoginRegister";
 
 const Login = () => {
 	return (
-		<BaseLoginRegister title='Login' buttonValue='Login' />
+		<BaseLoginRegister
+			title="Login"
+			buttonValue="Login"
+			value1="Don't Have An Account?"
+			value2={<Link to="/register">Create An Account</Link>}
+		/>
 	);
 };
 

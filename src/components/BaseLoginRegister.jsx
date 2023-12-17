@@ -1,5 +1,6 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/prop-types */
-import { Box, Center, Flex, Grid, GridItem, Text } from "@chakra-ui/react";
+import { Box, Center, Divider, Flex, Grid, GridItem, Text } from "@chakra-ui/react";
 import FormLoginRegister from "./FormLoginRegister";
 
 const BaseLoginRegister = (props) => {
@@ -45,7 +46,22 @@ const BaseLoginRegister = (props) => {
 								{props.title}
 							</Text>
 						</Center>
-						<FormLoginRegister ></FormLoginRegister>
+						<FormLoginRegister buttonValue={props.buttonValue}></FormLoginRegister>
+						<Divider mt={5} />
+						<Center
+							flexDirection="column"
+							h="30%"
+							w="100%"
+							color="white"
+						>
+							{props.value1}
+							<Text
+								color="black"
+								cursor="pointer"
+							>
+								{props.value2}
+							</Text>
+						</Center>
 					</GridItem>
 				</Grid>
 			</Box>
