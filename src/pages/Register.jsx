@@ -2,7 +2,7 @@ import BaseLoginRegister from "../components/BaseLoginRegister";
 
 const Register = () => {
 	return (
-		<BaseLoginRegister value='Register' />
+		<BaseLoginRegister title='Register' />
 	);
 };
 
