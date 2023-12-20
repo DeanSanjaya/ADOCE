@@ -59,7 +59,7 @@ const Contact = () => {
                 className="bg-white placeholder:text-slate-300 outline-none rounded-xl w-full py-3 px-4 h-32"
               />
               <button className="mt-10 w-full bg-[#0766AD] py-3 rounded-xl font-semibold text-white text-xl">
-                Send Message
+                Send Message 
               </button>
             </form>
           </div>
