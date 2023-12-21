@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Adopt from "./pages/Adopt";
 
 function App() {
 	return (
@@ -14,8 +15,19 @@ function App() {
 					path="/register"
 					element={<Register />}
 				/>
+				<Route
+					path="/adopt"
+					element={<Adopt/>}
+				/>
+				<Route
+					path="/donate"
+					element={<Adopt/>}
+				/>
+				
 			</Routes>
 		</BrowserRouter>
+
+
 	);
 }
 
