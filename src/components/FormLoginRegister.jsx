@@ -22,6 +22,7 @@ const FormLoginRegister = ({ buttonValue }) => {
 					<EmailIcon color="black" />
 				</InputLeftAddon>
 				<Input
+					autoComplete="off"
 					bg="white"
 					borderRadius="24px"
 					placeholder="you@example.com"
