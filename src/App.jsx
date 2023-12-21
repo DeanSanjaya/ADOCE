@@ -19,21 +19,23 @@ function App() {
 				/>
 				<Route
 					path="/adopt"
-					element={<Adopt/>}
+					element={<Adopt />}
 				/>
 				<Route
 					path="/donate"
-					element={<Adopt/>}
+					element={<Adopt />}
 				/>
-            <Route
-            path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-				
+				<Route
+					path="/about"
+					element={<About />}
+				/>
+				<Route
+					path="/contact"
+					element={<Contact />}
+				/>
 			</Routes>
 		</BrowserRouter>
-
-
 	);
-
+}
 
 export default App;
