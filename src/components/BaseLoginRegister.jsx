@@ -43,10 +43,13 @@ const BaseLoginRegister = (props) => {
 								fontWeight="bold"
 								fontSize={32}
 							>
-								{props.title}
+								{props.type}
 							</Text>
 						</Center>
-						<FormLoginRegister buttonValue={props.buttonValue}></FormLoginRegister>
+						<FormLoginRegister
+							type={props.type}
+							buttonValue={props.buttonValue}
+						></FormLoginRegister>
 						<Divider mt={5} />
 						<Center
 							flexDirection="column"
