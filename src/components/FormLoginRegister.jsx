@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Button, FormControl, FormLabel, Input, InputGroup, InputLeftAddon, InputRightElement } from "@chakra-ui/react";
+import { Button, FormControl, FormLabel, Input, InputGroup, InputLeftAddon, InputRightElement, Text } from "@chakra-ui/react";
 import { EmailIcon, LockIcon, ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { useState } from "react";
 import axios from "axios";
@@ -9,36 +9,58 @@ const FormLoginRegister = ({ buttonValue, type }) => {
 	const navigate = useNavigate();
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const [alertEmail, setAlertEmail] = useState("Email Tidak Boleh Kosong");
+	const [alertPassword, setAlertPassword] = useState("Password Tidak Boleh Kosong");
+	const isValidEmail = (email) => {
+		const emailRegex = /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
+		return emailRegex.test(email);
+	};
+	const handleEmailChange = (e) => {
+		const inputEmail = e.target.value;
+		if (inputEmail.trim() === "") {
+			setAlertEmail("Email Tidak Boleh Kosong");
+		} else if (!isValidEmail(inputEmail)) {
+			setAlertEmail("Email Tidak Valid");
+		} else {
+			setAlertEmail("");
+		}
+		setEmail(inputEmail);
+	};
+	const handlePasswordChange = (e) => {
+		const inputPassword = e.target.value;
+		if (inputPassword.trim() === "") {
+			setAlertPassword("Password Tidak Boleh Kosong");
+		} else if (inputPassword.length < 8) {
+			setAlertPassword("Password harus lebih dari 8 karakter");
+		} else {
+			setAlertPassword("");
+		}
+		setPassword(inputPassword);
+	};
 	const handleAuth = async () => {
-		try {
-			if (type === "login") {
-				const response = await axios.get("http://localhost:3001/users", {
-					params: { email, password },
-				});
-
-				const user = response.data[0];
-
-				if (user) {
-					// Logika login berhasil
-					// const token = generateToken(); // Implementasikan fungsi generateToken sesuai kebutuhan
-					console.log("Login success:");
-					navigate("/adopt");
-					// Handle successful login logic, misalnya, menyimpan token di state atau cookie
-				} else {
-					console.log("Login failed");
-					// Handle login failure logic
+		if (alertEmail === "" && alertPassword === "") {
+			try {
+				if (type === "login") {
+					const response = await axios.get("http://localhost:3001/users", {
+						params: { email, password },
+					});
+					const user = response.data[0];
+					if (user) {
+						console.log("Login success:");
+						navigate("/adopt");
+					} else {
+						console.log("Login failed");
+					}
+				} else if (type === "register") {
+					const response = await axios.post("http://localhost:3001/users", { email, password });
+					console.log("Register success:", response.data);
+					navigate("/login");
 				}
-			} else if (type === "register") {
-				const response = await axios.post("http://localhost:3001/users", { email, password });
-				console.log("Register success:", response.data);
-				// Handle successful register logic, mungkin melakukan navigasi ke halaman login
+			} catch (error) {
+				console.error(`${type} error:`, error.message);
 			}
-		} catch (error) {
-			console.error(`${type} error:`, error.message);
-			// Handle login or register error logic
 		}
 	};
-
 	const [show, setShow] = useState(false);
 	const handleClick = () => setShow(!show);
 	return (
@@ -46,6 +68,7 @@ const FormLoginRegister = ({ buttonValue, type }) => {
 			<FormLabel
 				mt={50}
 				color="white"
+				htmlFor="email"
 			>
 				Email
 			</FormLabel>
@@ -57,8 +80,9 @@ const FormLoginRegister = ({ buttonValue, type }) => {
 					<EmailIcon color="black" />
 				</InputLeftAddon>
 				<Input
+					name="email"
 					value={email}
-					onChange={(e) => setEmail(e.target.value)}
+					onChange={handleEmailChange}
 					autoComplete="off"
 					bg="white"
 					borderRadius="24px"
@@ -67,12 +91,22 @@ const FormLoginRegister = ({ buttonValue, type }) => {
 					id="email"
 				/>
 			</InputGroup>
+			<Text
+				mt={1}
+				color={"white"}
+				position={"absolute"}
+				textTransform={"uppercase"}
+			>
+				{alertEmail}
+			</Text>
 			<FormLabel
-				mt={25}
+				mt={50}
 				color="white"
+				htmlFor="password"
 			>
 				Password
 			</FormLabel>
+
 			<InputGroup>
 				<InputLeftAddon
 					borderLeftRadius="24px"
@@ -81,7 +115,8 @@ const FormLoginRegister = ({ buttonValue, type }) => {
 					<LockIcon color="black" />
 				</InputLeftAddon>
 				<Input
-					onChange={(e) => setPassword(e.target.value)}
+					name="password"
+					onChange={handlePasswordChange}
 					value={password}
 					id="password"
 					bg="white"
@@ -89,6 +124,7 @@ const FormLoginRegister = ({ buttonValue, type }) => {
 					placeholder="Enter your password"
 					type={show ? "text" : "password"}
 				/>
+
 				<InputRightElement>
 					<Button
 						bg="white"
@@ -99,12 +135,20 @@ const FormLoginRegister = ({ buttonValue, type }) => {
 					</Button>
 				</InputRightElement>
 			</InputGroup>
+			<Text
+				mt={1}
+				color={"white"}
+				position={"absolute"}
+				textTransform={"uppercase"}
+			>
+				{alertPassword}
+			</Text>
 			<Button
 				onClick={handleAuth}
 				bg="#2E51CE"
 				color="white"
 				w="100%"
-				mt={25}
+				mt={50}
 				borderRadius="24px"
 			>
 				{buttonValue}
