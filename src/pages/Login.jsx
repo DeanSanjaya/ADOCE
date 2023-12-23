@@ -4,7 +4,7 @@ import BaseLoginRegister from "../components/BaseLoginRegister";
 const Login = () => {
 	return (
 		<BaseLoginRegister
-			title="Login"
+			type="login"
 			buttonValue="Login"
 			value1="Don't Have An Account?"
 			value2={<Link to="/register">Create An Account</Link>}

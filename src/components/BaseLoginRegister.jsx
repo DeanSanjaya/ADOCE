@@ -2,6 +2,8 @@
 /* eslint-disable react/prop-types */
 import { Box, Center, Divider, Flex, Grid, GridItem, Text } from "@chakra-ui/react";
 import FormLoginRegister from "./FormLoginRegister";
+import { ArrowBackIcon } from "@chakra-ui/icons";
+import { Link } from "react-router-dom";
 
 const BaseLoginRegister = (props) => {
 	return (
@@ -28,7 +30,15 @@ const BaseLoginRegister = (props) => {
 							bgImage="url('../src/assets/front-image.svg')"
 							bgSize="cover"
 							borderLeftRadius="24px"
-						/>
+						>
+							<Link to={"/"}>
+								<ArrowBackIcon
+									cursor={"pointer"}
+									mt={2}
+									ml={2}
+								/>
+							</Link>
+						</Box>
 					</GridItem>
 					<GridItem
 						p="2rem"
@@ -43,14 +53,17 @@ const BaseLoginRegister = (props) => {
 								fontWeight="bold"
 								fontSize={32}
 							>
-								{props.title}
+								{props.type}
 							</Text>
 						</Center>
-						<FormLoginRegister buttonValue={props.buttonValue}></FormLoginRegister>
+						<FormLoginRegister
+							type={props.type}
+							buttonValue={props.buttonValue}
+						></FormLoginRegister>
 						<Divider mt={5} />
 						<Center
 							flexDirection="column"
-							h="30%"
+							h="21%"
 							w="100%"
 							color="white"
 						>
