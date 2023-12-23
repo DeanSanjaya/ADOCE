@@ -1,14 +1,4 @@
 {
   "users": [
-    {
-      "email": "dean@gmail.com",
-      "password": "12345678",
-      "id": 1
-    },
-    {
-      "email": "dean@gmail.com",
-      "password": "12345678",
-      "id": 2
-    }
   ]
 }
