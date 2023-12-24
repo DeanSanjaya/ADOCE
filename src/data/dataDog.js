@@ -1,6 +1,6 @@
-import cardDog1 from "../assets/Rectangle 8(4).png";
-import cardDog2 from "../assets/Rectangle 8(5).png";
-import cardDog3 from "../assets/Rectangle 8(6).png";
+import cardDog1 from "../../public/dog1.png";
+import cardDog2 from "../../public/dog2.png";
+import cardDog3 from "../../public/dog3.png";
 const data = [
   {
     id: 1,
