@@ -162,7 +162,7 @@ function Home() {
       </div>
       <div className="container p-12 bg-[#8EACCD] min-w-full mt-2">
         <div className="flex justify-center">
-          <p className="text-3xl text-center px-[15%]">Copyright 2023</p>
+          <p className="text-white text-center px-[15%]">Copyright 2023</p>
         </div>
         <div className="flex justify-center"></div>
       </div>
