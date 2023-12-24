@@ -9,6 +9,8 @@ export default {
       },
       fontFamily: {
         inika: ["Inika", "Arial", "sans-serif"],
+        Baloo: ["Baloo Thambi", "sans-serif"],
+        Inika: ["Inika", `serif`],
       },
       boxShadow: {
         custom: "10px 10px 20px 0px rgba(80, 141, 190, 0.10)",
@@ -18,6 +20,7 @@ export default {
       },
       backgroundImage: {
         "hero-pattern": "url('/hero.png')",
+        "hero-cat": "url('src/assets/image 2.png')",
       },
     },
   },

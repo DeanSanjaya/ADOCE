@@ -4,11 +4,13 @@ import Register from "./pages/Register";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Adopt from "./pages/Adopt";
+import Home from "./pages/Home";
 
 function App() {
 	return (
 		<BrowserRouter>
 			<Routes>
+    <Route path="/" element={<Home />} />
 				<Route
 					path="/login"
 					element={<Login />}
