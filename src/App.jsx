@@ -7,19 +7,37 @@ import Adopt from "./pages/Adopt";
 import Home from "./pages/Home";
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/" element={<Home />} />
-        <Route path="/adopt" element={<Adopt />} />
-        <Route path="/donate" element={<Adopt />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-    </BrowserRouter>
-  );
+	return (
+		<BrowserRouter>
+			<Routes>
+    <Route path="/" element={<Home />} />
+				<Route
+					path="/login"
+					element={<Login />}
+				/>
+				<Route
+					path="/register"
+					element={<Register />}
+				/>
+				<Route
+					path="/adopt"
+					element={<Adopt />}
+				/>
+				<Route
+					path="/donate"
+					element={<Adopt />}
+				/>
+				<Route
+					path="/about"
+					element={<About />}
+				/>
+				<Route
+					path="/contact"
+					element={<Contact />}
+				/>
+			</Routes>
+		</BrowserRouter>
+	);
 }
 
 export default App;
