@@ -1,11 +1,35 @@
 /* eslint-disable react/prop-types */
 // Menggunakan eslint directive untuk menonaktifkan peringatan terkait prop-types pada komponen
 import { Button } from "@chakra-ui/button";
+import { useState } from "react";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 // Komponen Card
 export const Card = ({ src, name, gender, age, location }) => {
-	const onButtonClick = () => {
-		window.open("https://wa.me/0895411044647", "_blank");
+	const [textButton, setTextButton] = useState("Adopt Now");
+	const [buttonDisabled, setButtonDisabled] = useState(false);
+	const showSwal = () => {
+		withReactContent(Swal)
+			.fire({
+				title: "Apakah kamu yakin?",
+				icon: "warning",
+				showCancelButton: true,
+				confirmButtonColor: "#3085d6",
+				cancelButtonColor: "#d33",
+				confirmButtonText: "Yes",
+			})
+			.then((result) => {
+				if (result.isConfirmed) {
+					setTextButton("Adopted");
+					setButtonDisabled(true);
+					Swal.fire({
+						title: "Selamat",
+						text: "Adopsi berhasil",
+						icon: "success",
+					});
+				}
+			});
 	};
 	return (
 		// Container untuk kartu dengan menggunakan Tailwind CSS classes
@@ -17,10 +41,8 @@ export const Card = ({ src, name, gender, age, location }) => {
 				height={229}
 				alt="cat"
 			/>
-
 			{/* Nama kucing */}
 			<p className="text-black font-bold text-3xl text-left">{name}</p>
-
 			{/* Informasi gender dan usia kucing */}
 			<div className="flex flex-col space-y-1">
 				<p className="text-black text-xl text-left">{gender}</p>
@@ -34,10 +56,11 @@ export const Card = ({ src, name, gender, age, location }) => {
 			<Button
 				w="100%"
 				m="auto"
-				onClick={onButtonClick}
-				colorScheme="blue"
+				onClick={showSwal}
+				colorScheme={buttonDisabled ? "red" : "blue"}
+				isDisabled={buttonDisabled}
 			>
-				Adopt Now
+				{textButton}
 			</Button>
 		</div>
 	);
