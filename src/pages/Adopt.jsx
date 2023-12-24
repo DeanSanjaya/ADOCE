@@ -6,6 +6,7 @@ import { Navbar } from "../components/navbar";
 export default function Adopt() {
   // State untuk mengontrol apakah kucing tambahan harus ditampilkan atau tidak
   const [showCat, setShowCat] = useState(false);
+  const [showDog, setShowDog] = useState(false);
   return (
     <>
     <Navbar />
@@ -62,14 +63,14 @@ export default function Adopt() {
           />
           <Card
             src="/cat4.png"
-            name="Persia"
+            name="Munchkin"
             gender="Female"
             age="2 Years"
             location="ADOCE - Jakarta"
           />
           <Card
             src="/cat5.png"
-            name="Maine Coon"
+            name="Ragdoll"
             gender="Female"
             age="1 Years"
             location="ADOCE - Jakarta"
@@ -84,24 +85,24 @@ export default function Adopt() {
           {showCat ? (
             <>
               <Card
-                src="/cat4.png"
-                name="Persia"
+                src="/cat7.png"
+                name="Scottish fold"
                 gender="Female"
-                age="2 Years"
+                age="1 Years"
                 location="ADOCE - Jakarta"
               />
               <Card
-                src="/cat5.png"
+                src="/cat8.png"
                 name="Maine Coon"
                 gender="Female"
                 age="1 Years"
                 location="ADOCE - Jakarta"
               />
               <Card
-                src="/cat6.png"
+                src="/cat9.png"
                 name="Persia"
-                gender="Scottish Fold"
-                age="3 Years"
+                gender="Male"
+                age="2 Years"
                 location="ADOCE - Jakarta"
               />
             </>
@@ -147,18 +148,45 @@ export default function Adopt() {
             src="/dog5.png"
             name="Dachshund"
             gender="Female"
-            age="1 Years"
+            age="3 Years"
             location="ADOCE - Jakarta"
           />
           <Card
             src="/dog6.png"
             name="Chihuahua"
             gender="Scottish Fold"
-            age="3 Years"
+            age="1 Years"
             location="ADOCE - Jakarta"
           />
+        {showDog ? (
+            <>
+              <Card
+                src="/dog7.png"
+                name="Pudel"
+                gender="Female"
+                age="2 Years"
+                location="ADOCE - Jakarta"
+              />
+              <Card
+                src="/dog8.png"
+                name="Rottweiler"
+                gender="Female"
+                age="3 Years"
+                location="ADOCE - Jakarta"
+              />
+              <Card
+                src="/dog9.png"
+                name="Beagle"
+                gender="Male"
+                age="1 Years"
+                location="ADOCE - Jakarta"
+              />
+            </>
+          ) : null}
         </div>
-        <Button name="View All Dogs" />
+        {!showDog ? (
+          <Button onClick={() => setShowDog(true)} name="View All Dogs" />
+        ) : null}
       </div>
       {/* Bagian keempat */}
       <div className=" bg-brand w-full py-8">
