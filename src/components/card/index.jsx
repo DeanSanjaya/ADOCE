@@ -5,8 +5,9 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
+
 // Komponen Card
-export const Card = ({ src, name, gender, age, location }) => {
+export const Card = ({ id, img, title, gender, old, location }) => {
 	const [textButton, setTextButton] = useState("Adopt Now");
 	const [buttonDisabled, setButtonDisabled] = useState(false);
 	const showSwal = () => {
@@ -21,11 +22,11 @@ export const Card = ({ src, name, gender, age, location }) => {
 			})
 			.then((result) => {
 				if (result.isConfirmed) {
-					setTextButton("Adopted");
+					setTextButton("Waiting list");
 					setButtonDisabled(true);
 					Swal.fire({
-						title: "Selamat",
-						text: "Adopsi berhasil",
+						title: "Waiting list",
+						text: "Kamu akan di hubungi via email 2x24 jam",
 						icon: "success",
 					});
 				}
@@ -36,17 +37,17 @@ export const Card = ({ src, name, gender, age, location }) => {
 		<div className="py-6 px-8 shadow-custom border border-[#F2F7FB] bg-white flex flex-col items-start space-y-5 font-inika rounded-3xl">
 			{/* Gambar kartu, menggunakan src atau gambar default jika src tidak diberikan */}
 			<img
-				src={src ?? "/cat1.png"}
+				src={img}
 				width={271}
 				height={229}
 				alt="cat"
 			/>
 			{/* Nama kucing */}
-			<p className="text-black font-bold text-3xl text-left">{name}</p>
+			<p className="text-black font-bold text-3xl text-left">{title}</p>
 			{/* Informasi gender dan usia kucing */}
 			<div className="flex flex-col space-y-1">
 				<p className="text-black text-xl text-left">{gender}</p>
-				<p className="text-black text-xl text-left">{age}</p>
+				<p className="text-black text-xl text-left">{old}</p>
 			</div>
 			{/* Lokasi kucing dengan ikon dan teks */}
 			<div className="flex flex-row space-x-2">

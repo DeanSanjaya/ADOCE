@@ -12,6 +12,8 @@ import { Link } from "react-router-dom";
 import { Navbar } from "../components/navbar";
 
 function Home() {
+	const filteredData = dataCat.slice(0, 3);
+	const filteredData2 = dataDog.slice(0, 3);
 	return (
 		<>
 			<Navbar />
@@ -28,7 +30,8 @@ function Home() {
 					<p className="flex font-inika text-6xl mt-12">Cat Pet</p>
 				</div>
 				<div className="container mx-auto flex flex-row md:justify-between justify-center  mt-12 grid grid md:grid-cols-3 gap-20 ">
-					{dataCat.map((item) => (
+					
+					{filteredData.map((item) => (
 						<>
 							<div
 								className="max-w-md rounded-[5%] overflow-hidden shadow-lg p-3 bg-white"
@@ -62,7 +65,7 @@ function Home() {
 					<p className="flex font-inter text-6xl mt-12">Dog Pet</p>
 				</div>
 				<div className="container mx-auto flex flex-row md:justify-between justify-center  mt-12 grid grid md:grid-cols-3 gap-20 ">
-					{dataDog.map((item) => (
+					{filteredData2.map((item) => (
 						<>
 							<div
 								className="max-w-md rounded-[5%] overflow-hidden shadow-lg p-3 bg-white"
