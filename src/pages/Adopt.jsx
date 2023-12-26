@@ -2,11 +2,19 @@ import { useState } from "react";
 import { Button } from "../components/button";
 import { Card } from "../components/card";
 import { Navbar } from "../components/navbar";
+import dataCat from "../data/dataCat";
+import dataDog from "../data/dataDog";
+
 
 export default function Adopt() {
   // State untuk mengontrol apakah kucing tambahan harus ditampilkan atau tidak
   const [showCat, setShowCat] = useState(false);
   const [showDog, setShowDog] = useState(false);
+  
+  const filteredData = dataCat.slice(0, 6);
+  const filteredData2 = dataCat.slice(6, 9);
+  const filteredData3 = dataDog.slice(0, 6);
+  const filteredData4 = dataDog.slice(6, 9);
   return (
     <>
     <Navbar />
@@ -29,7 +37,7 @@ export default function Adopt() {
         <div className=" absolute right-0 bottom-0">
           <div className="flex flex-col items-end py-12 px-20 bg-brand/30 backdrop-blur-xl">
             <p className="text-white text-2xl">Lost or Found a Pet?</p>
-            <p className="text-white text-2xl">Call: 0648327435992</p>
+            <p className="text-white text-2xl">Call: 085903795561</p>
           </div>
         </div>
         {/* Background image  */}
@@ -39,75 +47,18 @@ export default function Adopt() {
       {/* Bagian kedua */}
       <div className="flex flex-col justify-center space-y-20 bg-main py-12 items-center">
         <h3 className=" text-black text-4xl font-semibold">Available Cats</h3>
-        <div className="grid grid-cols-3 gap-28">
-          <Card
-            src="/cat1.png"
-            name="Persia"
-            gender="Female"
-            age="1.5 Years"
-            location="ADOCE - Jakarta"
-          />
-          <Card
-            src="/cat2.png"
-            name="Maine Coon"
-            gender="Female"
-            age="2 Years"
-            location="ADOCE - Jakarta"
-          />
-          <Card
-            src="/cat3.png"
-            name="Scottish Fold"
-            gender="Female"
-            age="2 Years"
-            location="ADOCE - Jakarta"
-          />
-          <Card
-            src="/cat4.png"
-            name="Munchkin"
-            gender="Female"
-            age="2 Years"
-            location="ADOCE - Jakarta"
-          />
-          <Card
-            src="/cat5.png"
-            name="Ragdoll"
-            gender="Female"
-            age="1 Years"
-            location="ADOCE - Jakarta"
-          />
-          <Card
-            src="/cat6.png"
-            name="Persia"
-            gender="Scottish Fold"
-            age="3 Years"
-            location="ADOCE - Jakarta"
-          />
+        { <div className="grid grid-cols-3 gap-28">
+          {filteredData.map((item) => (
+            <Card key={item.id} {...item} />
+          ))}  
           {showCat ? (
             <>
-              <Card
-                src="/cat7.png"
-                name="Scottish fold"
-                gender="Female"
-                age="1 Years"
-                location="ADOCE - Jakarta"
-              />
-              <Card
-                src="/cat8.png"
-                name="Maine Coon"
-                gender="Female"
-                age="1 Years"
-                location="ADOCE - Jakarta"
-              />
-              <Card
-                src="/cat9.png"
-                name="Persia"
-                gender="Male"
-                age="2 Years"
-                location="ADOCE - Jakarta"
-              />
+              {filteredData2.map((item) => (
+                <Card key={item.id} {...item} />
+              ))} 
             </>
           ) : null}
-        </div>
+        </div> }
         {!showCat ? (
           <Button onClick={() => setShowCat(true)} name="View All Cats" />
         ) : null}
@@ -116,74 +67,17 @@ export default function Adopt() {
       <div className="flex flex-col justify-center space-y-20 bg-main pt-24 pb-12 items-center">
         <h3 className=" text-black text-4xl font-semibold">Available Dogs</h3>
         <div className="grid grid-cols-3 gap-28">
-          <Card
-            src="/dog1.png"
-            name="Poodle"
-            gender="Female"
-            age="1.5 Years"
-            location="ADOCE - Jakarta"
-          />
-          <Card
-            src="/dog2.png"
-            name="German Shepherd"
-            gender="Female"
-            age="2 Years"
-            location="ADOCE - Jakarta"
-          />
-          <Card
-            src="/dog3.png"
-            name="Golden Retriever"
-            gender="Female"
-            age="2 Years"
-            location="ADOCE - Jakarta"
-          />
-          <Card
-            src="/dog4.png"
-            name="Beagle"
-            gender="Female"
-            age="2 Years"
-            location="ADOCE - Jakarta"
-          />
-          <Card
-            src="/dog5.png"
-            name="Dachshund"
-            gender="Female"
-            age="3 Years"
-            location="ADOCE - Jakarta"
-          />
-          <Card
-            src="/dog6.png"
-            name="Chihuahua"
-            gender="Scottish Fold"
-            age="1 Years"
-            location="ADOCE - Jakarta"
-          />
-        {showDog ? (
+          {filteredData3.map((item) => (
+            <Card key={item.id} {...item} />
+          ))}  
+          {showDog ? (
             <>
-              <Card
-                src="/dog7.png"
-                name="Pudel"
-                gender="Female"
-                age="2 Years"
-                location="ADOCE - Jakarta"
-              />
-              <Card
-                src="/dog8.png"
-                name="Rottweiler"
-                gender="Female"
-                age="3 Years"
-                location="ADOCE - Jakarta"
-              />
-              <Card
-                src="/dog9.png"
-                name="Beagle"
-                gender="Male"
-                age="1 Years"
-                location="ADOCE - Jakarta"
-              />
+              {filteredData4.map((item) => (
+                <Card key={item.id} {...item} />
+              ))} 
             </>
           ) : null}
-        </div>
+        </div> 
         {!showDog ? (
           <Button onClick={() => setShowDog(true)} name="View All Dogs" />
         ) : null}
