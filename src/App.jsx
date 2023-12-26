@@ -28,7 +28,7 @@ function App() {
 				/>
 				<Route
 					path="/donate"
-					element={<Adopt />}
+					element={<Donate />}
 				/>
 				<Route
 					path="/about"

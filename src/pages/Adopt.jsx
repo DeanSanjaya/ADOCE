@@ -132,6 +132,7 @@ export default function Adopt() {
 					<p className="text-brand text-center text-sm">Copyright 2023</p>
 				</div>
 			</div>
+			<Footer/>
 		</>
 	);
 }
