@@ -2,15 +2,59 @@
 import { Button, FormControl, FormLabel, Input, InputGroup, InputLeftAddon, InputRightElement, Text } from "@chakra-ui/react";
 import { EmailIcon, LockIcon, ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 const FormLoginRegister = ({ buttonValue, type }) => {
 	const navigate = useNavigate();
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const [alertEmail, setAlertEmail] = useState("Email Tidak Boleh Kosong");
-	const [alertPassword, setAlertPassword] = useState("Password Tidak Boleh Kosong");
+	const [alertEmail, setAlertEmail] = useState("");
+	const [alertPassword, setAlertPassword] = useState("");
+	const loginFailed = () => {
+		withReactContent(Swal)
+			.fire({
+				title: "Akun Anda Belum terdaftar",
+				icon: "error",
+				confirmButtonColor: "#3085d6",
+				confirmButtonText: "Yes",
+			})
+			.then((result) => {
+				if (result.isConfirmed) {
+					navigate("/login");
+				}
+			});
+	};
+	const loginSuccess = () => {
+		withReactContent(Swal)
+			.fire({
+				title: "Login Sukses",
+				icon: "success",
+				confirmButtonColor: "#3085d6",
+				confirmButtonText: "Yes",
+			})
+			.then((result) => {
+				if (result.isConfirmed) {
+					navigate("/adopt");
+				}
+			});
+	};
+	const registerSuccess = () => {
+		withReactContent(Swal)
+			.fire({
+				title: "Pendaftaran Berhasil",
+				icon: "success",
+				confirmButtonColor: "#3085d6",
+				confirmButtonText: "Yes",
+			})
+			.then((result) => {
+				if (result.isConfirmed) {
+					navigate("/login");
+				}
+			});
+	};
 	const isValidEmail = (email) => {
 		const emailRegex = /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
 		return emailRegex.test(email);
@@ -46,15 +90,14 @@ const FormLoginRegister = ({ buttonValue, type }) => {
 					});
 					const user = response.data[0];
 					if (user) {
-						console.log("Login success:");
-						navigate("/adopt");
+						loginSuccess();
 					} else {
-						console.log("Login failed");
+						loginFailed();
 					}
 				} else if (type === "register") {
 					const response = await axios.post("http://localhost:3001/users", { email, password });
 					console.log("Register success:", response.data);
-					navigate("/login");
+					registerSuccess();
 				}
 			} catch (error) {
 				console.error(`${type} error:`, error.message);
@@ -95,18 +138,16 @@ const FormLoginRegister = ({ buttonValue, type }) => {
 				mt={1}
 				color={"white"}
 				position={"absolute"}
-				textTransform={"uppercase"}
 			>
 				{alertEmail}
 			</Text>
 			<FormLabel
-				mt={50}
+				mt={8}
 				color="white"
 				htmlFor="password"
 			>
 				Password
 			</FormLabel>
-
 			<InputGroup>
 				<InputLeftAddon
 					borderLeftRadius="24px"
@@ -139,7 +180,6 @@ const FormLoginRegister = ({ buttonValue, type }) => {
 				mt={1}
 				color={"white"}
 				position={"absolute"}
-				textTransform={"uppercase"}
 			>
 				{alertPassword}
 			</Text>
