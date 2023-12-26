@@ -7,7 +7,7 @@ const Login = () => {
 			type="login"
 			buttonValue="Login"
 			value1="Don't Have An Account?"
-			value2={<Link to="/register">Create An Account</Link>}
+			value2={<Link to="/register">Create</Link>}
 		/>
 	);
 };
