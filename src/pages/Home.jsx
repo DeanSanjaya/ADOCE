@@ -21,13 +21,13 @@ function Home() {
 				{/* <img className="flex w-full" src={cat1} alt="image" /> */}
 				<div className="bg-image-container1 md:p-24 mt-12 py-12 p-2">
 					<div className="relative">
-						<p className="text-[65px] md:text-[105px] font-bold blur-sm text-blue-400 inline">ADOCE</p>
-						<p className="absolute  inset-0 md:text-[100px] text-[60px] font-bold font-Poppins font-Poppins">ADOCE</p>
+						<p className="text-[65px] text-white md:text-[105px] font-bold blur-sm text-blue-400 inline">ADOCE</p>
+						<p className="absolute  inset-0 md:text-[100px]  text-[60px] font-bold font-Poppins font-Poppins">ADOCE</p>
 					</div>
-					<p className="text-5xl font-Poppins">Adoption Center</p>
+					<p className="text-5xl text-white font-Poppins">Adoption Center</p>
 				</div>
 				<div className="flex justify-center flex-wrap mx-20">
-					<p className="flex font-inika text-6xl mt-12">Cat Pet</p>
+					<p className="flex font-inika font-bold text-6xl mt-12">Cat Pet</p>
 				</div>
 				<div className="container mx-auto flex flex-row md:justify-between justify-center  mt-12 grid grid md:grid-cols-3 gap-20 ">
 					
@@ -62,7 +62,7 @@ function Home() {
 					))}
 				</div>
 				<div className="flex flex-wrap justify-center mx-20">
-					<p className="flex font-inter text-6xl mt-12">Dog Pet</p>
+					<p className="flex font-inika font-bold text-6xl mt-12">Dog Pet</p>
 				</div>
 				<div className="container mx-auto flex flex-row md:justify-between justify-center  mt-12 grid grid md:grid-cols-3 gap-20 ">
 					{filteredData2.map((item) => (
@@ -106,7 +106,7 @@ function Home() {
 				>
 					<div className="font-baloo md:text-6xl text-3xl font-extrabold md:w-2/4 w-full">Prepare Your Home For Your Cat</div>
 					<p className="md:w-2/4 w-full md:text-3xl text-xl mt-12">ADOCE berkomitmen untuk menyelamatkan dan merawat hewan peliharaan. Kami memperjuangkan hak-hak hewan dan berupaya mencari rumah yang baik bagi mereka.</p>
-					<Link to="/adopt">
+					<Link to="/about">
 						<button className="md:text-3xl text-xl bg-[#D9D9D9] hover:bg-white rounded-lg mt-12 p-4">Selengkapnya</button>
 					</Link>
 				</div>
@@ -127,7 +127,7 @@ function Home() {
 				<div className="md:flex flex-row gap-12 justify-center mt-12">
 					<div>
 						<h2 className="text-3xl font-bold">
-							<span className="text-[#D9D9D9]">ADOPSI</span>CENTER
+							<span className="text-[#D9D9D9]">ADOPTION</span>CENTER
 						</h2>
 						<span className="flex flex-wrap mt-3">
 							<img
