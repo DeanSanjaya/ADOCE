@@ -2,7 +2,7 @@
 // src/components/ImageDisplay.js
 const ImageDisplay = ({ selectedImage }) => {
 	return (
-		<div className="flex justify-center items-center">
+		<div className="flex justify-center items-center pt-6">
 			{selectedImage && (
 				<img
 					src={selectedImage}

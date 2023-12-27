@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
 
 export default function Adopt() {
 	// State untuk mengontrol apakah kucing tambahan harus ditampilkan atau tidak
@@ -22,7 +23,7 @@ export default function Adopt() {
 	}, []);
 	return (
 		<>
-			<Navbar />
+			<Navbar currentPage={"Adopt"} />
 			{/* Bagian awal/atas */}
 			<div className="h-screen w-full relative flex justify-start items-center">
 				<div className=" max-w-7xl mx-auto w-full">
@@ -122,16 +123,16 @@ export default function Adopt() {
 				<div className="max-w-3xl mx-auto flex flex-col space-y-5 items-center">
 					<p className="text-white text-3xl font-bold">Care Animals</p>
 					<p className=" text-xl text-white text-center">Your contribution today will provide essential care for abandoned, injured, and orphaned animals immediately, during their moment of necessity.</p>
-					<Button
-						name="Donate Now"
-						className="bg-white text-brand"
-					/>
+					<Link to={"/donate"}>
+						<Button
+							name="Donate Now"
+							className="bg-white text-brand"
+						/>
+					</Link>
 				</div>
 			</div>
-			<div className=" bg-main w-full py-3">
-				<div className="max-w-xl mx-auto">
-					<p className="text-brand text-center text-sm">Copyright 2023</p>
-				</div>
+			<div className=" bg-brand w-full py-3">
+				<div className="max-w-xl mx-auto"></div>
 			</div>
 			<Footer />
 		</>

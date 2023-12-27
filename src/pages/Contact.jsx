@@ -1,7 +1,7 @@
 import MarkunreadIcon from "@mui/icons-material/Markunread";
 import CallIcon from "@mui/icons-material/Call";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import  Navbar  from "../components/Navbar";
+import Navbar from "../components/Navbar";
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import emailjs from "emailjs-com";
@@ -42,11 +42,10 @@ const Contact = () => {
 			.send(serviceID, templateID, template, publicKey)
 			.then((response) => {
 				console.log("Email sent successfully:", response);
-				submitSuccess()
+				submitSuccess();
 				setName("");
 				setTelepon("");
 				setMessage("");
-
 			})
 			.catch((error) => {
 				console.error("Email sending failed:", error);
@@ -58,7 +57,7 @@ const Contact = () => {
 			<div className="bg-[#8EACCD] h-screen justify-center flex-col flex px-[75px]">
 				<div className="flex justify-between items-start w-full">
 					<div className="w-2/4">
-						<h1 className="font-bold text-5xl mb-2">Contact US</h1>
+						<h1 className="text-white font-bold text-5xl mb-2">Contact US</h1>
 						<div className="bg-white h-1 w-20" />
 						<div className="flex flex-col space-y-10 mt-20">
 							<div className="flex items-center space-x-5">
@@ -141,7 +140,7 @@ const Contact = () => {
 					</div>
 				</div>
 			</div>
-			<Footer/>
+			<Footer />
 		</div>
 	);
 };

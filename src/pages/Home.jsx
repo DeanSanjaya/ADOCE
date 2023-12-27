@@ -1,19 +1,20 @@
+import "./home.css";
 import logo1 from "../assets/Ellipse 3.png";
 import logo2 from "../assets/Ellipse 4.png";
 import logo3 from "../assets/Ellipse 6.png";
 import star from "../assets/star_rate.png";
 import rating from "../assets/rating.svg";
-import "./home.css";
 import location from "../assets/location.png";
 import dataCat from "../data/dataCat";
 import dataDog from "../data/dataDog";
 import comentar from "../data/comentar";
-import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Footer from "../components/Footer";
+
 
 function Home() {
 	const filteredData = dataCat.slice(0, 3);
@@ -235,12 +236,6 @@ function Home() {
 						))}
 					</div>
 				</div>
-			</div>
-			<div className="container p-12 bg-[#8EACCD] min-w-full mt-2">
-				<div className="flex justify-center">
-					<p className="text-3xl text-center px-[15%]">INI FOOTER</p>
-				</div>
-				<div className="flex justify-center"></div>
 			</div>
 			<Footer />
 		</>
