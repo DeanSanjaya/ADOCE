@@ -241,6 +241,7 @@ function Home() {
 				</div>
 				<div className="flex justify-center"></div>
 			</div>
+			<Footer/>
 		</>
 	);
 }
