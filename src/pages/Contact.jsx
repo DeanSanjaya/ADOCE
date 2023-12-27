@@ -1,12 +1,13 @@
 import MarkunreadIcon from "@mui/icons-material/Markunread";
 import CallIcon from "@mui/icons-material/Call";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import { Navbar } from "../components/navbar";
+import  Navbar  from "../components/Navbar";
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import emailjs from "emailjs-com";
 import withReactContent from "sweetalert2-react-content";
 import Swal from "sweetalert2";
+import Footer from "../components/Footer";
 
 const Contact = () => {
 	const [name, setName] = useState("");

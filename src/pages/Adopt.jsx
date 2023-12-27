@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { Button } from "../components/button";
 import { Card } from "../components/card";
-import { Navbar } from "../components/navbar";
+import Navbar from "../components/Navbar";
 import dataCat from "../data/dataCat";
 import dataDog from "../data/dataDog";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Footer from "../components/Footer";
 
 export default function Adopt() {
 	// State untuk mengontrol apakah kucing tambahan harus ditampilkan atau tidak
@@ -88,7 +89,7 @@ export default function Adopt() {
 				>
 					Available Dogs
 				</h3>
-				<di
+				<div
 					data-aos="fade-up"
 					className="grid grid-cols-3 gap-28"
 				>
@@ -108,7 +109,7 @@ export default function Adopt() {
 							))}
 						</>
 					) : null}
-				</di>
+				</div>
 				{!showDog ? (
 					<Button
 						onClick={() => setShowDog(true)}
@@ -132,7 +133,7 @@ export default function Adopt() {
 					<p className="text-brand text-center text-sm">Copyright 2023</p>
 				</div>
 			</div>
-			<Footer/>
+			<Footer />
 		</>
 	);
 }

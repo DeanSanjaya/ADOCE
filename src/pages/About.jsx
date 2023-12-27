@@ -1,9 +1,10 @@
-import { Navbar } from "../components/navbar";
+import  Navbar from "../components/Navbar";
+import Footer from "../components/Footer"
 
 const About = () => {
 	const urlImage = "https://firebasestorage.googleapis.com/v0/b/my-doctor-01-da016.appspot.com/o/Group%201.png?alt=media&token=575ea831-eaba-46bf-bf98-ce2b57b00bb5";
-	const imageurl = "/public/Cat.jpg"
-	const Urlimage = "/public/dog.jpg"
+	const imageurl = "/public/Cat.jpg";
+	const Urlimage = "/public/dog.jpg";
 	return (
 		<div>
 			<Navbar />
@@ -28,7 +29,7 @@ const About = () => {
 			<div className="bg-[#ffff] h-screen justify-center flex-col flex px-[75px]">
 				<div className="flex items-center justify-between w-full">
 					<div className="w-2/4">
-					<img
+						<img
 							src={imageurl}
 							width={400}
 							height={300}
@@ -36,14 +37,13 @@ const About = () => {
 						/>
 					</div>
 					<div className="w-2/4 justify-start">
-					<h1 className="font-bold text-3xl w-[70%] mb-5 ml-20">
-							Misi Utama Kami
-						</h1>
-						<p className="w-[100%] mb-4 text-2xl">Berupaya menghubungkan hewan peliharaan yang membutuhkan rumah dengan keluarga yang peduli melalui proses adopsi. Selain itu, kami memperjuangkan sterilisasi sebagai langkah preventif untuk mengendalikan populasi hewan peliharaan.</p>
+						<h1 className="font-bold text-3xl w-[70%] mb-5 ml-20">Misi Utama Kami</h1>
+						<p className="w-[100%] mb-4 text-2xl">
+							Berupaya menghubungkan hewan peliharaan yang membutuhkan rumah dengan keluarga yang peduli melalui proses adopsi. Selain itu, kami memperjuangkan sterilisasi sebagai langkah preventif untuk mengendalikan populasi hewan
+							peliharaan.
+						</p>
 					</div>
-					<div className="w-1/8 flex justify-end">
-						
-					</div>
+					<div className="w-1/8 flex justify-end"></div>
 				</div>
 			</div>
 			<div className="bg-[#ffff] h-screen justify-center flex-col flex px-[75px]">
@@ -61,9 +61,8 @@ const About = () => {
 					</div>
 				</div>
 			</div>
-<Footer/>
+			<Footer />
 		</div>
-		
 	);
 };
 

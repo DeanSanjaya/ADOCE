@@ -9,10 +9,11 @@ import dataCat from "../data/dataCat";
 import dataDog from "../data/dataDog";
 import comentar from "../data/comentar";
 import { Link } from "react-router-dom";
-import { Navbar } from "../components/navbar";
+import Navbar from "../components/Navbar";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Footer from "../components/Footer";
 
 function Home() {
 	const filteredData = dataCat.slice(0, 3);
@@ -241,7 +242,7 @@ function Home() {
 				</div>
 				<div className="flex justify-center"></div>
 			</div>
-			<Footer/>
+			<Footer />
 		</>
 	);
 }
