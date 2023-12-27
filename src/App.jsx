@@ -5,6 +5,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Adopt from "./pages/Adopt";
 import Home from "./pages/Home";
+import Donate from "./pages/Donate";
 
 function App() {
 	return (

@@ -5,9 +5,8 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
-
 // Komponen Card
-export const Card = ({ id, img, title, gender, old, location }) => {
+export const Card = ({ img, title, gender, old, location }) => {
 	const [textButton, setTextButton] = useState("Adopt Now");
 	const [buttonDisabled, setButtonDisabled] = useState(false);
 	const showSwal = () => {
