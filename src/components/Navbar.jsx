@@ -19,7 +19,7 @@ const Navbar = ({ currentPage }) => {
 	const { pathname } = useLocation();
 	const isActive = (path) => path === pathname;
 	return (
-		<Flex
+		<Flex zIndex={99}
 			position={"fixed"}
 			top={0}
 			left={0}
