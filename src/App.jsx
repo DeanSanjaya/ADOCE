@@ -7,6 +7,23 @@ import Adopt from "./pages/Adopt";
 import Home from "./pages/Home";
 import Donate from "./pages/Donate";
 
+const theme = extendTheme({
+	fonts: {
+	  body: 'Poppins, system-ui, sans-serif',
+	  heading: 'Poppins, system-ui, sans-serif',
+	},
+	fontWeights: {
+	  bold: 700,
+	  medium: 500,
+	  semibold: 600,
+	},
+	colors: {
+	  blue: {
+		1 : "#8EACCD",
+	  },
+	}
+  });
+
 function App() {
 	return (
 		<BrowserRouter>
