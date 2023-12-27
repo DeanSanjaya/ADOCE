@@ -2,7 +2,7 @@
 import { Link as RouterLink, useLocation } from "react-router-dom";
 import { Box, Flex, Button, Link } from "@chakra-ui/react";
 
-const Navbar = () => {
+const Navbar = ({ currentPage }) => {
 	const NavLink = ({ to, children, isActive }) => (
 		<Link
 			as={RouterLink}
@@ -20,10 +20,14 @@ const Navbar = () => {
 	const isActive = (path) => path === pathname;
 	return (
 		<Flex
+			position={"fixed"}
+			top={0}
+			left={0}
+			right={0}
 			justify="space-between"
 			p="3"
 			pt="4"
-			bg="blue.1"
+			bg="#8EACCD"
 		>
 			<Box>
 				<Link
@@ -74,19 +78,21 @@ const Navbar = () => {
 				</NavLink>
 			</Flex>
 
-			<Box>
-				<Link
-					as={RouterLink}
-					to="/login"
-				>
-					<Button
-						fontWeight="semibold"
-						colorScheme="blue"
+			{currentPage !== "Adopt" && (
+				<Box>
+					<Link
+						as={RouterLink}
+						to="/login"
 					>
-						Login
-					</Button>
-				</Link>
-			</Box>
+						<Button
+							fontWeight="semibold"
+							colorScheme="blue"
+						>
+							Login
+						</Button>
+					</Link>
+				</Box>
+			)}
 		</Flex>
 	);
 };

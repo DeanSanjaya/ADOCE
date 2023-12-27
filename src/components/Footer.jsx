@@ -8,7 +8,7 @@ const Footer = () => {
 			align="center"
 			justify="center"
 			p="4"
-			bg="blue.1"
+			// bg="#8EACCD"
 			color="white"
 			position="fixed"
 			bottom="0"
